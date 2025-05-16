@@ -1,11 +1,11 @@
 {
-    "name": "diegofdg/bienesraices",
+    "name": "pdrondvicky/bienesraices",
     "description": "Creando un Proyecto con POO",
     "type": "project",    
     "authors": [
         {
-            "name": "Diego Fabián Di Giorgio",
-            "email": "diegofdg@gmail.com"
+            "name": "Pedro nd Vicky",
+            "email": "pdrondvicky@gmail.com"
         }
     ],
     "require": {

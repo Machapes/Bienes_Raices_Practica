@@ -63,3 +63,37 @@
     
         return $id;
     }
+
+function verificarCredenciales($email, $password) {
+    $db = conectarDB();
+    
+    $query = "SELECT * FROM usuarios WHERE email = '${email}'";
+    $resultado = mysqli_query($db, $query);
+    
+    if($resultado->num_rows) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        $auth = password_verify($password, $usuario['password']);
+        
+        if($auth) {
+            session_start();
+            $_SESSION['login'] = true;
+            $_SESSION['email'] = $usuario['email'];
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+function iniciarSesion() {
+    session_start();
+    $auth = $_SESSION['login'] ?? false;
+    
+    if(!$auth) {
+        header('Location: /login');
+        exit;
+    }
+}
+  
+
+    
